@@ -27,7 +27,7 @@ namespace NotificationTaskScheduler.RecipientGetterStrategies
             var recipients = GetRecipientsFromDbWithoutManagerInfo();
             foreach (var recipient in recipients)
             {
-                var msId = recipient.AzurePackId.Replace("@ms.ds.uhc.com", "").Trim();  
+                var msId = recipient.AzurePackId.Replace("@domain.com", "").Trim();  
                 var userInfo = _ldapService.GetUserInfoAndManagers(msId);
                 recipient.OneLevelUpManager = new RecipientManager
                 {
